@@ -1,5 +1,4 @@
 package com.example.assingment11;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -23,8 +22,26 @@ public class ListGrocery {
         groceries.add(grocery);
     }
 
-    public void removeGrocery(int position) {
-        groceries.remove(position);
+    public void removeGrocery(String name) {
+        Grocery groceryToRemove = null;
+        for (Grocery grocery : groceries) {
+            if (grocery.getName().equals(name)) {
+                groceryToRemove = grocery;
+                break;
+            }
+        }
+        if (groceryToRemove != null) {
+            groceries.remove(groceryToRemove);
+        }
+    }
+
+    public Grocery getGroceryByName(String name) {
+        for (Grocery grocery : groceries) {
+            if (grocery.getName().equals(name)) {
+                return grocery;
+            }
+        }
+        return null; // Palautetaan null, jos ei löydy ruokakauppaa annetulla nimellä
     }
 
     public ArrayList<Grocery> getGroceries() {
@@ -36,17 +53,6 @@ public class ListGrocery {
     }
 
     public void sortGroceriesByTime() {
-        // Olettaen, että jokaisella Grocery-oliolla on aikaleimaominaisuus, joka edustaa aikaa
-        Collections.sort(groceries, new Comparator<Grocery>() {
-            @Override
-            public int compare(Grocery g1, Grocery g2) {
-                // Toteuta logiikka ostosten vertailuun ajan perusteella
-                // Esimerkiksi:
-                // return g1.getTimestamp().compareTo(g2.getTimestamp());
-                // Korvaa getTimestamp() todellisella metodilla aikaleiman hakemiseksi ostokselta
-                // Tämä on vain paikantäyttöarvo, joka tulee korvata todellisella toteutuksella
-                return 0; // Paikantäyttöarvo
-            }
-        });
+        // Lisää aikajärjestykseen järjestämisen toiminnallisuus tarvittaessa
     }
 }

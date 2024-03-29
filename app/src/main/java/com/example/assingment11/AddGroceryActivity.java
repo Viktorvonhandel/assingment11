@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class AddGroceryActivity extends AppCompatActivity {
@@ -29,11 +30,10 @@ public class AddGroceryActivity extends AppCompatActivity {
                 String groceryNote = editGroceryNote.getText().toString().trim();
 
                 if (!groceryName.isEmpty()) {
-                    // Lisätään tuote listaan, kun nappia painetaan
                     ListGrocery.getInstance().addGrocery(new Grocery(groceryName, groceryNote));
                     Toast.makeText(AddGroceryActivity.this, "Grocery added successfully", Toast.LENGTH_SHORT).show();
-                    setResult(RESULT_OK); // Ilmoita onnistuneesta lisäyksestä
-                    finish(); // Suljetaan tämä activity ja palataan takaisin MainActivityyn
+                    setResult(RESULT_OK);
+                    finish();
                 } else {
                     Toast.makeText(AddGroceryActivity.this, "Please enter a grocery name", Toast.LENGTH_SHORT).show();
                 }
@@ -41,3 +41,4 @@ public class AddGroceryActivity extends AppCompatActivity {
         });
     }
 }
+

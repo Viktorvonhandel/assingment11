@@ -57,20 +57,20 @@ public class GroceryListAdapter extends RecyclerView.Adapter<GroceryListAdapter.
             @Override
             public void onClick(View v) {
                 isEditMode = !isEditMode;
-                int currentPosition = holder.getAdapterPosition(); // Päivitetty position hakemaan se adapterin sijainnista
+                int currentPosition = holder.getAdapterPosition();
                 if (isEditMode) {
                     currentPosition = holder.getAdapterPosition();
                     holder.textGroceryName.setVisibility(View.GONE);
                     holder.editTextGroceryName.setVisibility(View.VISIBLE);
-                    holder.editTextGroceryName.requestFocus(); // Pyydetään fokusta muokkauskentälle
+                    holder.editTextGroceryName.requestFocus();
                     InputMethodManager imm = (InputMethodManager) v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.showSoftInput(holder.editTextGroceryName, InputMethodManager.SHOW_IMPLICIT); // Avataan näppäimistö automaattisesti
+                    imm.showSoftInput(holder.editTextGroceryName, InputMethodManager.SHOW_IMPLICIT);
                 } else {
                     String newName = holder.editTextGroceryName.getText().toString();
-                    holder.textGroceryName.setText(newName); // Asetetaan uusi nimi Groceryn nimeksi
+                    holder.textGroceryName.setText(newName);
                     holder.textGroceryName.setVisibility(View.VISIBLE);
                     holder.editTextGroceryName.setVisibility(View.GONE);
-                    // Tallennetaan uusi nimi takaisin Grocery-olioon
+
                     Grocery grocery = groceries.get(currentPosition);
                     grocery.setName(newName);
                     notifyDataSetChanged();
@@ -88,7 +88,7 @@ public class GroceryListAdapter extends RecyclerView.Adapter<GroceryListAdapter.
     public static class GroceryViewHolder extends RecyclerView.ViewHolder {
         public TextView textGroceryName;
         public EditText editTextGroceryName;
-        public EditText textGroceryNote; // Lisätty EditText muistiinpanoille
+        public EditText textGroceryNote;
         public ImageView imageDelete;
         public ImageView imageEdit;
 

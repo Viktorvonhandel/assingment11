@@ -1,5 +1,4 @@
 package com.example.assingment11;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -27,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.rvGroceries);
 
         listGrocery = ListGrocery.getInstance();
-        listGrocery.sortGroceriesByTime(); // Järjestä ostokset ajan mukaan heti alussa
+        listGrocery.sortGroceriesByTime();
 
         adapter = new GroceryListAdapter(listGrocery.getGroceries());
         recyclerView.setAdapter(adapter);
