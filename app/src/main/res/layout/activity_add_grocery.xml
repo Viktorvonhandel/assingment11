@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal">
+
+    <EditText
+        android:id="@+id/editGroceryName"
+        android:layout_width="185dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:hint="Grocery"
+        android:minHeight="48dp" />
+
+    <EditText
+        android:id="@+id/editGroceryNote"
+        android:layout_width="185dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editGroceryName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:hint="Note"
+        android:minHeight="48dp" />
+
+    <Button
+        android:id="@+id/buttonAddGrocery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editGroceryNote"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="Add Grocery" />
+
+</RelativeLayout>
