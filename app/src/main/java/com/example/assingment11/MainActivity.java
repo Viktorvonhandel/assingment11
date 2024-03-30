@@ -2,11 +2,12 @@ package com.example.assingment11;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ListGrocery listGrocery;
     private GroceryListAdapter adapter;
+    private Button buttonAddNewGrocery;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         imageAlphabet = findViewById(R.id.imageAlphabet);
         imageTime = findViewById(R.id.imageTime);
         recyclerView = findViewById(R.id.rvGroceries);
+        buttonAddNewGrocery = findViewById(R.id.buttonAddNewGrocery);
 
         listGrocery = ListGrocery.getInstance();
         listGrocery.sortGroceriesByTime();
@@ -47,14 +50,19 @@ public class MainActivity extends AppCompatActivity {
                 adapter.notifyDataSetChanged();
             }
         });
+
+        buttonAddNewGrocery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openAddGroceryActivity();
+            }
+        });
     }
 
-    public void openAddGroceryActivity(View view) {
+    public void openAddGroceryActivity() {
         Intent intent = new Intent(this, AddGroceryActivity.class);
         startActivityForResult(intent, 1);
     }
-
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
