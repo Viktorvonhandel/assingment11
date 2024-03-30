@@ -1,4 +1,5 @@
 package com.example.assingment11;
+
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -23,4 +24,3 @@ public class GroceryViewHolder extends RecyclerView.ViewHolder {
         imageEdit = itemView.findViewById(R.id.imageEdit);
     }
 }
-
