@@ -22,6 +22,7 @@ public class AddGroceryActivity extends AppCompatActivity {
         GroceryNote = findViewById(R.id.GroceryNote);
         buttonAddGrocery = findViewById(R.id.buttonAddGrocery);
 
+
         buttonAddGrocery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -32,11 +33,13 @@ public class AddGroceryActivity extends AppCompatActivity {
                     ListGrocery.getInstance().addGrocery(new Grocery(groceryName, groceryNote));
                     Toast.makeText(AddGroceryActivity.this, "Grocery added successfully", Toast.LENGTH_SHORT).show();
                     setResult(RESULT_OK);
+
                     finish();
                 } else {
                     Toast.makeText(AddGroceryActivity.this, "Please enter a grocery name", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+
     }
 }
