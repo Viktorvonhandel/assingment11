@@ -1,4 +1,5 @@
 package com.example.assingment11;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,16 +10,17 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
-import android.content.Context;
 import android.view.inputmethod.InputMethodManager;
 
 public class GroceryListAdapter extends RecyclerView.Adapter<GroceryListAdapter.GroceryViewHolder> {
 
+    private Context context;
     private ArrayList<Grocery> groceries;
     private boolean isEditMode = false;
     private int currentPosition = RecyclerView.NO_POSITION;
 
-    public GroceryListAdapter(ArrayList<Grocery> groceries) {
+    public GroceryListAdapter(Context context, ArrayList<Grocery> groceries) {
+        this.context = context;
         this.groceries = groceries;
     }
 
@@ -57,13 +59,12 @@ public class GroceryListAdapter extends RecyclerView.Adapter<GroceryListAdapter.
             @Override
             public void onClick(View v) {
                 isEditMode = !isEditMode;
-                int currentPosition = holder.getAdapterPosition();
+                currentPosition = holder.getAdapterPosition();
                 if (isEditMode) {
-                    currentPosition = holder.getAdapterPosition();
                     holder.textGroceryName.setVisibility(View.GONE);
                     holder.editTextGroceryName.setVisibility(View.VISIBLE);
                     holder.editTextGroceryName.requestFocus();
-                    InputMethodManager imm = (InputMethodManager) v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
                     imm.showSoftInput(holder.editTextGroceryName, InputMethodManager.SHOW_IMPLICIT);
                 } else {
                     String newName = holder.editTextGroceryName.getText().toString();

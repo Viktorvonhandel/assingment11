@@ -1,4 +1,5 @@
 package com.example.assingment11;
+
 import java.util.ArrayList;
 
 public class GroceryManager {
@@ -21,6 +22,12 @@ public class GroceryManager {
         groceries.add(grocery);
     }
 
+    public void removeGrocery(int index) {
+        if (index >= 0 && index < groceries.size()) {
+            groceries.remove(index);
+        }
+    }
+
     public void updateGrocery(int index, Grocery updatedGrocery) {
         if (index >= 0 && index < groceries.size()) {
             groceries.set(index, updatedGrocery);
@@ -31,4 +38,3 @@ public class GroceryManager {
         return groceries;
     }
 }
-

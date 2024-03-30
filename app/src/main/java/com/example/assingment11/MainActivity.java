@@ -3,10 +3,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         listGrocery = ListGrocery.getInstance();
         listGrocery.sortGroceriesByTime();
 
-        adapter = new GroceryListAdapter(listGrocery.getGroceries());
+        adapter = new GroceryListAdapter(this, listGrocery.getGroceries());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 

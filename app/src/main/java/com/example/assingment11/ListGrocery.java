@@ -41,7 +41,7 @@ public class ListGrocery {
                 return grocery;
             }
         }
-        return null; // Palautetaan null, jos ei löydy ruokakauppaa annetulla nimellä
+        return null;
     }
 
     public ArrayList<Grocery> getGroceries() {
@@ -53,6 +53,6 @@ public class ListGrocery {
     }
 
     public void sortGroceriesByTime() {
-        // Lisää aikajärjestykseen järjestämisen toiminnallisuus tarvittaessa
+
     }
 }
