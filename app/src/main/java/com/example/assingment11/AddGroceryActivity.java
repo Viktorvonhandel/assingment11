@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class AddGroceryActivity extends AppCompatActivity {
 
-    private EditText editGroceryName, GroceryNote;
+    private EditText editGroceryName, editGroceryNote;
     private Button buttonAddGrocery;
 
     @Override
@@ -19,7 +19,7 @@ public class AddGroceryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_grocery);
 
         editGroceryName = findViewById(R.id.editGroceryName);
-        GroceryNote = findViewById(R.id.GroceryNote);
+        editGroceryNote = findViewById(R.id.editGroceryNote);
         buttonAddGrocery = findViewById(R.id.buttonAddGrocery);
 
 
@@ -27,7 +27,7 @@ public class AddGroceryActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String groceryName = editGroceryName.getText().toString().trim();
-                String groceryNote = GroceryNote.getText().toString().trim();
+                String groceryNote = editGroceryNote.getText().toString().trim();
 
                 if (!groceryName.isEmpty()) {
                     ListGrocery.getInstance().addGrocery(new Grocery(groceryName, groceryNote));
