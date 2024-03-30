@@ -1,6 +1,5 @@
 package com.example.assingment11;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,7 +19,7 @@ public class AddGroceryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_grocery);
 
         editGroceryName = findViewById(R.id.editGroceryName);
-        editGroceryNote = findViewById(R.id.editGroceryNote);
+        editGroceryNote = findViewById(R.id.GroceryNote);
         buttonAddGrocery = findViewById(R.id.buttonAddGrocery);
 
         buttonAddGrocery.setOnClickListener(new View.OnClickListener() {
@@ -41,4 +40,3 @@ public class AddGroceryActivity extends AppCompatActivity {
         });
     }
 }
-

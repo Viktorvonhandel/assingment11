@@ -15,7 +15,7 @@
         android:minHeight="48dp" />
 
     <EditText
-        android:id="@+id/editGroceryNote"
+        android:id="@+id/GroceryNote"
         android:layout_width="185dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/editGroceryName"
@@ -28,7 +28,7 @@
         android:id="@+id/buttonAddGrocery"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editGroceryNote"
+        android:layout_below="@id/GroceryNote"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
         android:text="Add Grocery" />

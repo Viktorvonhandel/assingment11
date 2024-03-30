@@ -1,4 +1,5 @@
 package com.example.assingment11;
+
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -10,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class GroceryViewHolder extends RecyclerView.ViewHolder {
     public TextView textGroceryName;
     public EditText editTextGroceryName;
-    public EditText textGroceryNote;
+    public EditText GroceryNote; // Muuta muuttujan nimi tässä
     public ImageView imageDelete;
     public ImageView imageEdit;
 
@@ -18,7 +19,7 @@ public class GroceryViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
         textGroceryName = itemView.findViewById(R.id.textGroceryName);
         editTextGroceryName = itemView.findViewById(R.id.editTextGroceryName);
-        textGroceryNote = itemView.findViewById(R.id.editTextGroceryNote);
+        GroceryNote = itemView.findViewById(R.id.editTextGroceryNote); // Muuta muuttujan nimi tässä
         imageDelete = itemView.findViewById(R.id.imageDelete);
         imageEdit = itemView.findViewById(R.id.imageEdit);
     }

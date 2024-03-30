@@ -1,6 +1,5 @@
 package com.example.assingment11;
 
-
 public class Grocery {
     private String name;
     private String note;
@@ -17,12 +16,15 @@ public class Grocery {
     public void setName(String name) {
         this.name = name;
     }
-    public void setNote(String note) { this.note= note;
-    }
 
     public String getNote() {
         return note;
     }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
 }
+
 
 

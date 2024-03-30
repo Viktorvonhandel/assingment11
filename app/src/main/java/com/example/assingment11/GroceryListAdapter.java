@@ -1,4 +1,5 @@
 package com.example.assingment11;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,7 +35,7 @@ public class GroceryListAdapter extends RecyclerView.Adapter<GroceryListAdapter.
     @Override
     public void onBindViewHolder(@NonNull GroceryViewHolder holder, int position) {
         Grocery grocery = groceries.get(position);
-        holder.textGroceryNote.setText(grocery.getNote());
+        holder.GroceryNote.setText(grocery.getNote()); // Muuta textGroceryNote -> GroceryNote
 
         if (isEditMode && position == currentPosition) {
             holder.textGroceryName.setVisibility(View.GONE);
@@ -89,7 +90,7 @@ public class GroceryListAdapter extends RecyclerView.Adapter<GroceryListAdapter.
     public static class GroceryViewHolder extends RecyclerView.ViewHolder {
         public TextView textGroceryName;
         public EditText editTextGroceryName;
-        public EditText textGroceryNote;
+        public EditText GroceryNote; // Muuta textGroceryNote -> GroceryNote
         public ImageView imageDelete;
         public ImageView imageEdit;
 
@@ -97,10 +98,9 @@ public class GroceryListAdapter extends RecyclerView.Adapter<GroceryListAdapter.
             super(itemView);
             textGroceryName = itemView.findViewById(R.id.textGroceryName);
             editTextGroceryName = itemView.findViewById(R.id.editTextGroceryName);
-            textGroceryNote = itemView.findViewById(R.id.editTextGroceryNote);
+            GroceryNote = itemView.findViewById(R.id.editTextGroceryNote); // Muuta textGroceryNote -> GroceryNote
             imageDelete = itemView.findViewById(R.id.imageDelete);
             imageEdit = itemView.findViewById(R.id.imageEdit);
         }
     }
 }
-
