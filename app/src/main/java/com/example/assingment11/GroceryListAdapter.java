@@ -1,7 +1,6 @@
 package com.example.assingment11;
 
 
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,17 +36,8 @@ public class GroceryListAdapter extends RecyclerView.Adapter<GroceryListAdapter.
     @Override
     public void onBindViewHolder(@NonNull GroceryViewHolder holder, int position) {
         Grocery grocery = groceries.get(position);
+        holder.textGroceryName.setText(grocery.getName());
         holder.textGroceryNote.setText(grocery.getNote());
-
-        if (isEditMode && position == currentPosition) {
-            holder.textGroceryName.setVisibility(View.GONE);
-            holder.editTextGroceryName.setVisibility(View.VISIBLE);
-            holder.editTextGroceryName.setText(grocery.getName());
-        } else {
-            holder.textGroceryName.setVisibility(View.VISIBLE);
-            holder.editTextGroceryName.setVisibility(View.GONE);
-            holder.textGroceryName.setText(grocery.getName());
-        }
 
         holder.imageDelete.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,27 +51,9 @@ public class GroceryListAdapter extends RecyclerView.Adapter<GroceryListAdapter.
         holder.imageEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                isEditMode = !isEditMode;
-                currentPosition = holder.getAdapterPosition();
-                if (isEditMode) {
-                    holder.textGroceryName.setVisibility(View.GONE);
-                    holder.editTextGroceryName.setVisibility(View.VISIBLE);
-                    holder.editTextGroceryName.requestFocus();
-                    InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.showSoftInput(holder.editTextGroceryName, InputMethodManager.SHOW_IMPLICIT);
-                } else {
-                    String newName = holder.editTextGroceryName.getText().toString();
-                    holder.textGroceryName.setText(newName);
-                    holder.textGroceryName.setVisibility(View.VISIBLE);
-                    holder.editTextGroceryName.setVisibility(View.GONE);
-
-                    Grocery grocery = groceries.get(currentPosition);
-                    grocery.setName(newName);
-                    notifyDataSetChanged();
-                }
+                // Implement the functionality for editing the note here
             }
         });
-
     }
 
     @Override
@@ -106,4 +78,3 @@ public class GroceryListAdapter extends RecyclerView.Adapter<GroceryListAdapter.
         }
     }
 }
-

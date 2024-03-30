@@ -1,4 +1,5 @@
 package com.example.assingment11;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -67,10 +68,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1) {
-            if (resultCode == RESULT_OK) {
-                adapter.notifyDataSetChanged();
-            }
+        if (requestCode == 1 && resultCode == RESULT_OK) {
+            adapter.notifyDataSetChanged();
         }
     }
 }
+
