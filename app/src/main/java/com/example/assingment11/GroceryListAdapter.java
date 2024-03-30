@@ -1,6 +1,5 @@
 package com.example.assingment11;
 
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -51,7 +50,20 @@ public class GroceryListAdapter extends RecyclerView.Adapter<GroceryListAdapter.
         holder.imageEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Implement the functionality for editing the note here
+                // Toggle edit mode
+                isEditMode = !isEditMode;
+                if (isEditMode) {
+                    holder.textGroceryNote.setVisibility(View.GONE);
+                    holder.editTextGroceryNote.setVisibility(View.VISIBLE);
+                    holder.editTextGroceryNote.requestFocus();
+                    InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.showSoftInput(holder.editTextGroceryNote, InputMethodManager.SHOW_IMPLICIT);
+                } else {
+                    holder.textGroceryNote.setVisibility(View.VISIBLE);
+                    holder.editTextGroceryNote.setVisibility(View.GONE);
+                    String newNote = holder.editTextGroceryNote.getText().toString();
+                    grocery.setNote(newNote);
+                }
             }
         });
     }
@@ -64,7 +76,8 @@ public class GroceryListAdapter extends RecyclerView.Adapter<GroceryListAdapter.
     public static class GroceryViewHolder extends RecyclerView.ViewHolder {
         public TextView textGroceryName;
         public EditText editTextGroceryName;
-        public EditText textGroceryNote;
+        public TextView textGroceryNote;
+        public EditText editTextGroceryNote;
         public ImageView imageDelete;
         public ImageView imageEdit;
 
@@ -72,7 +85,8 @@ public class GroceryListAdapter extends RecyclerView.Adapter<GroceryListAdapter.
             super(itemView);
             textGroceryName = itemView.findViewById(R.id.textGroceryName);
             editTextGroceryName = itemView.findViewById(R.id.editTextGroceryName);
-            textGroceryNote = itemView.findViewById(R.id.editTextGroceryNote);
+            textGroceryNote = itemView.findViewById(R.id.textGroceryNote);
+            editTextGroceryNote = itemView.findViewById(R.id.editTextGroceryNote);
             imageDelete = itemView.findViewById(R.id.imageDelete);
             imageEdit = itemView.findViewById(R.id.imageEdit);
         }
